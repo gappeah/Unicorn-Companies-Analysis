@@ -8,9 +8,9 @@ SELECT
                 substring(current_valuation FROM '\$([0-9.]+)') AS NUMERIC
             ) * 
             CASE 
-                WHEN current_valuation LIKE '%Billion' THEN 1000000000
-                WHEN current_valuation LIKE '%Million' THEN 1000000
-                WHEN current_valuation LIKE '%Trillion' THEN 1000000000000
+              	 WHEN profit_loss_fy22 ILIKE '%trillion' THEN 1e12
+        		 WHEN profit_loss_fy22 ILIKE '%billion'  THEN 1e9
+        		 WHEN profit_loss_fy22 ILIKE '%million'  THEN 1e6
                 ELSE 1
             END
     END AS current_numeric_valuation
